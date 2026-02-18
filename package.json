@@ -1,0 +1,20 @@
+{
+  "name": "stock-price-app",
+  "version": "1.0.0",
+  "description": "Simple web app to fetch stock prices",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "proxy": "node proxy-server.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "node-fetch": "^2.7.0"
+  }
+}

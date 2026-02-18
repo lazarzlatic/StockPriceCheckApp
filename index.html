@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price App</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📈 Stock Price Checker</h1>
+        <p class="subtitle">Enter a stock ticker to get the current price</p>
+        
+        <div class="api-selector">
+            <span class="api-label">Data Source:</span>
+            <div class="toggle-switch">
+                <input type="checkbox" id="apiToggle" class="toggle-checkbox">
+                <label for="apiToggle" class="toggle-label">
+                    <span class="toggle-inner"></span>
+                    <span class="toggle-switch-handle"></span>
+                </label>
+            </div>
+            <span class="api-name" id="apiName">Alpha Vantage</span>
+        </div>
+        
+        <div class="input-group">
+            <input 
+                type="text" 
+                id="tickerInput" 
+                placeholder="Enter stock ticker (e.g., AAPL, MSFT, GOOGL)" 
+                autocomplete="off"
+            />
+            <button id="priceButton">Price</button>
+        </div>
+        
+        <div id="result" class="result hidden"></div>
+        <div id="loading" class="loading hidden">Loading...</div>
+        <div id="error" class="error hidden"></div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

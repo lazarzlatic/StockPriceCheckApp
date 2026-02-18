@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.api-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.api-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.api-name {
+    font-weight: bold;
+    color: #667eea;
+    min-width: 120px;
+    font-size: 0.95em;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #667eea;
+    border-radius: 30px;
+    transition: 0.4s;
+}
+
+.toggle-label:hover {
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.toggle-switch-handle {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #10b981;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-switch-handle {
+    transform: translateX(30px);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#tickerInput {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#tickerInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#priceButton {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#priceButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#priceButton:active {
+    transform: translateY(0);
+}
+
+#priceButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.result {
+    background: #f0f9ff;
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.result h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.result .price {
+    font-size: 2.5em;
+    color: #667eea;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.result .info {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.price-current {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.price-label {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.historical-prices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.price-comparison {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.2s;
+}
+
+.price-comparison:hover {
+    transform: translateY(-2px);
+    border-color: #667eea;
+}
+
+.comparison-label {
+    font-size: 0.85em;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.comparison-price {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.comparison-change {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+}
+
+.section-divider {
+    text-align: center;
+    font-weight: bold;
+    color: #667eea;
+    margin: 25px 0 15px 0;
+    padding: 10px 0;
+    border-top: 2px solid #e0e0e0;
+    border-bottom: 2px solid #e0e0e0;
+    font-size: 1.1em;
+}
+
+.fixed-date-prices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .fixed-date-prices {
+        grid-template-columns: 1fr;
+    }
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #667eea;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.error {
+    background: #fee;
+    border-left: 4px solid #e74c3c;
+    padding: 15px;
+    border-radius: 10px;
+    color: #c0392b;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
