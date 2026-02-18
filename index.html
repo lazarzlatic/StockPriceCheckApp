@@ -12,15 +12,17 @@
         <p class="subtitle">Enter a stock ticker to get the current price</p>
         
         <div class="api-selector">
-            <span class="api-label">Data Source:</span>
-            <div class="toggle-switch">
-                <input type="checkbox" id="apiToggle" class="toggle-checkbox">
-                <label for="apiToggle" class="toggle-label">
-                    <span class="toggle-inner"></span>
-                    <span class="toggle-switch-handle"></span>
-                </label>
+            <div class="api-label">Data Source</div>
+            <div class="toggle-container">
+                <span class="api-option api-option-left">Yahoo Finance</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="apiToggle" class="toggle-checkbox">
+                    <label for="apiToggle" class="toggle-label">
+                        <span class="toggle-switch-handle"></span>
+                    </label>
+                </div>
+                <span class="api-option api-option-right">Alpha Vantage</span>
             </div>
-            <span class="api-name" id="apiName">Alpha Vantage</span>
         </div>
         
         <div class="input-group">

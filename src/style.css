@@ -39,11 +39,12 @@ h1 {
 
 .api-selector {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 15px;
     margin-bottom: 25px;
-    padding: 15px;
+    padding: 20px;
     background: #f8f9fa;
     border-radius: 10px;
 }
@@ -51,14 +52,44 @@ h1 {
 .api-label {
     font-weight: bold;
     color: #333;
-    font-size: 0.95em;
+    font-size: 1em;
+    text-align: center;
 }
 
-.api-name {
-    font-weight: bold;
-    color: #667eea;
-    min-width: 120px;
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.api-option {
+    font-weight: 600;
     font-size: 0.95em;
+    color: #666;
+    min-width: 110px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.api-option-left {
+    text-align: right;
+}
+
+.api-option-right {
+    text-align: left;
+}
+
+.toggle-checkbox:not(:checked) ~ .api-option-left {
+    color: #10b981;
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.toggle-checkbox:checked ~ .api-option-right {
+    color: #667eea;
+    font-weight: bold;
+    transform: scale(1.05);
 }
 
 .toggle-switch {
@@ -81,13 +112,13 @@ h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #667eea;
+    background-color: #10b981;
     border-radius: 30px;
     transition: 0.4s;
 }
 
 .toggle-label:hover {
-    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
 }
 
 .toggle-switch-handle {
@@ -100,10 +131,15 @@ h1 {
     background-color: white;
     border-radius: 50%;
     transition: 0.4s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-checkbox:checked + .toggle-label {
-    background-color: #10b981;
+    background-color: #667eea;
+}
+
+.toggle-checkbox:checked + .toggle-label:hover {
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
 }
 
 .toggle-checkbox:checked + .toggle-label .toggle-switch-handle {

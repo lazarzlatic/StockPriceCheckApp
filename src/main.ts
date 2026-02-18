@@ -8,7 +8,6 @@ const resultDiv = document.getElementById('result') as HTMLDivElement;
 const loadingDiv = document.getElementById('loading') as HTMLDivElement;
 const errorDiv = document.getElementById('error') as HTMLDivElement;
 const apiToggle = document.getElementById('apiToggle') as HTMLInputElement;
-const apiName = document.getElementById('apiName') as HTMLSpanElement;
 
 // Interface for stock data
 interface StockData {
@@ -458,15 +457,16 @@ async function handlePriceClick(): Promise<void> {
     
     try {
         // Check which API to use based on toggle switch
-        const useYFinance = apiToggle.checked;
+        // Unchecked (left) = Yahoo Finance, Checked (right) = Alpha Vantage
+        const useAlphaVantage = apiToggle.checked;
         let stockData: StockData;
         
-        if (useYFinance) {
-            // Use Yahoo Finance API
-            stockData = await fetchStockPriceYFinance(ticker);
-        } else {
+        if (useAlphaVantage) {
             // Use Alpha Vantage API
             stockData = await fetchStockPrice(ticker);
+        } else {
+            // Use Yahoo Finance API
+            stockData = await fetchStockPriceYFinance(ticker);
         }
         
         // Hide loading and display result
@@ -493,15 +493,6 @@ priceButton.addEventListener('click', handlePriceClick);
 tickerInput.addEventListener('keypress', (event: KeyboardEvent) => {
     if (event.key === 'Enter') {
         handlePriceClick();
-    }
-});
-
-// Toggle switch event listener
-apiToggle.addEventListener('change', () => {
-    if (apiToggle.checked) {
-        apiName.textContent = 'Yahoo Finance';
-    } else {
-        apiName.textContent = 'Alpha Vantage';
     }
 });
 
